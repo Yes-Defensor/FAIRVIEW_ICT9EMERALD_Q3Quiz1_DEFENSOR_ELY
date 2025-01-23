@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to  Calculate</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>If a = 20 and b = 5, compute for the following</h1>
+
+    <div class="section">
+        <h2>Arithmetic Operator</h2>
+        <button onclick="showExponent()">Show Exponent</button>
+        <button onclick="showModulus()">Show Modulus</button>
+    </div>
+
+    <div class="section">
+        <h2>Comparison Operator</h2>
+        <button onclick="showIsGreater()">Show if A is Greater</button>
+        <button onclick="showIsEqual()">Show if A is Equal</button>
+    </div>
+
+    <div class="section">
+        <h2>Logical Operator</h2>
+        <button onclick="showLogicalAnd()">Show Logical AND</button>
+        <button onclick="showLogicalOr()">Show Logical OR</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        let a = 20;
+        let b = 5;
+
+        function showExponent() {
+            let result = Math.pow(a, b);
+            document.getElementById('result').innerText = `Exponent: ${result}`;
+        }
+
+        function showModulus() {
+            let result = a % b;
+            document.getElementById('result').innerText = `Modulus: ${result}`;
+        }
+
+        function showIsGreater() {
+            let result = a > b;
+            document.getElementById('result').innerText = `Is A greater than B?: ${result}`;
+        }
+
+        function showIsEqual() {
+            let result = a === b;
+            document.getElementById('result').innerText = `Is A equal to B?: ${result}`;
+        }
+
+        function showLogicalAnd() {
+            let result = (a <= b) && (a >= b);
+            document.getElementById('result').innerText = `Logical AND (A <= B and A >= B): ${result}`;
+        }
+
+        function showLogicalOr() {
+            let result = (a !== b) || (a === b);
+            document.getElementById('result').innerText = `Logical OR (A != B or A == B): ${result}`;
+        }
+    </script>
+</body>
+</html>
