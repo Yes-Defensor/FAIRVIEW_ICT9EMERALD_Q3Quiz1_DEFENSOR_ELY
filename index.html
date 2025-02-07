@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click to Calculate</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<body>
-    <h1>If a = 20 and b = 5, compute for the following</h1>
+<body class="bg-light text-center py-5">
+    <div class="container">
+        <h1 class="text-primary">If a = 20 and b = 5, compute for the following</h1>
 
-    <div>
-        <h2>Arithmetic Operator</h2>
-        <button onclick="showExponent()">Show Exponent</button>
-        <button onclick="showModulus()">Show Modulus</button>
+        <div class="my-4">
+            <h2>Arithmetic Operator</h2>
+            <button class="btn btn-primary m-2" onclick="showExponent()">Show Exponent</button>
+            <button class="btn btn-primary m-2" onclick="showModulus()">Show Modulus</button>
+        </div>
+
+        <div class="my-4">
+            <h2>Comparison Operator</h2>
+            <button class="btn btn-success m-2" onclick="showIsGreater()">Show if A is Greater</button>
+            <button class="btn btn-success m-2" onclick="showIsEqual()">Show if A is Equal</button>
+        </div>
+
+        <div class="my-4">
+            <h2>Logical Operator</h2>
+            <button class="btn btn-warning m-2" onclick="showLogicalAnd()">Show Logical AND</button>
+            <button class="btn btn-warning m-2" onclick="showLogicalOr()">Show Logical OR</button>
+        </div>
+
+        <div class="my-4" id="result"></div>
     </div>
-
-    <div>
-        <h2>Comparison Operator</h2>
-        <button onclick="showIsGreater()">Show if A is Greater</button>
-        <button onclick="showIsEqual()">Show if A is Equal</button>
-    </div>
-
-    <div>
-        <h2>Logical Operator</h2>
-        <button onclick="showLogicalAnd()">Show Logical AND</button>
-        <button onclick="showLogicalOr()">Show Logical OR</button>
-    </div>
-
-    <div id="result"></div>
 
     <script>
         let a = 20;
@@ -62,5 +65,8 @@
             document.getElementById('result').innerText = `Logical OR: ${result}`;
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
