@@ -4,69 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click to Calculate</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Style for the body background and text */
+        body {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Container for buttons */
+        .button-container {
+            margin: 20px 0;
+        }
+        /* Style for buttons */
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        /* Hover effect for buttons */
+        button:hover {
+            opacity: 0.8;
+        }
+        /* Specific styles for different button types */
+        .arithmetic-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .comparison-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .logical-btn {
+            background-color: #ffc107;
+            color: black;
+        }
+        /* Style for the result display */
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
 </head>
-<body class="bg-light text-center py-5">
-    <div class="container">
-        <h1 class="text-primary">If a = 20 and b = 5, compute for the following</h1>
+<body>
+    <h1>If a = 20 and b = 5, compute for the following</h1>
 
-        <div class="my-4">
-            <h2>Arithmetic Operator</h2>
-            <button class="btn btn-primary m-2" onclick="showExponent()">Show Exponent</button>
-            <button class="btn btn-primary m-2" onclick="showModulus()">Show Modulus</button>
-        </div>
-
-        <div class="my-4">
-            <h2>Comparison Operator</h2>
-            <button class="btn btn-success m-2" onclick="showIsGreater()">Show if A is Greater</button>
-            <button class="btn btn-success m-2" onclick="showIsEqual()">Show if A is Equal</button>
-        </div>
-
-        <div class="my-4">
-            <h2>Logical Operator</h2>
-            <button class="btn btn-warning m-2" onclick="showLogicalAnd()">Show Logical AND</button>
-            <button class="btn btn-warning m-2" onclick="showLogicalOr()">Show Logical OR</button>
-        </div>
-
-        <div class="my-4" id="result"></div>
+    <div class="button-container">
+        <h2>Arithmetic Operator</h2>
+        <!-- Buttons for arithmetic operations -->
+        <button class="arithmetic-btn" onclick="showExponent()">Show Exponent</button>
+        <button class="arithmetic-btn" onclick="showModulus()">Show Modulus</button>
     </div>
 
+    <div class="button-container">
+        <h2>Comparison Operator</h2>
+        <!-- Buttons for comparison operations -->
+        <button class="comparison-btn" onclick="showIsGreater()">Show if A is Greater</button>
+        <button class="comparison-btn" onclick="showIsEqual()">Show if A is Equal</button>
+    </div>
+
+    <div class="button-container">
+        <h2>Logical Operator</h2>
+        <!-- Buttons for logical operations -->
+        <button class="logical-btn" onclick="showLogicalAnd()">Show Logical AND</button>
+        <button class="logical-btn" onclick="showLogicalOr()">Show Logical OR</button>
+    </div>
+
+    <!-- Result display area -->
+    <div id="result"></div>
+
     <script>
-        let a = 20;
-        let b = 5;
+        // Initialize variables
+        var a = 20;
+        var b = 5;
 
+        // Function to display the result in the result div
+        function showResult(text) {
+            document.getElementById('result').innerText = text;
+        }
+
+        // Function to show the exponent result
         function showExponent() {
-            let result = a ** b;
-            document.getElementById('result').innerText = `Exponent: ${result}`;
+            showResult("Exponent: " + Math.pow(a, b));
         }
 
+        // Function to show the modulus result
         function showModulus() {
-            let result = a % b;
-            document.getElementById('result').innerText = `Modulus: ${result}`;
+            showResult("Modulus: " + (a % b));
         }
 
+        // Function to show if A is greater than B
         function showIsGreater() {
-            let result = a > b;
-            document.getElementById('result').innerText = `Is A greater than B?: ${result}`;
+            showResult("Is A greater than B?: " + (a > b));
         }
 
+        // Function to show if A is equal to B
         function showIsEqual() {
-            let result = a === b;
-            document.getElementById('result').innerText = `Is A equal to B?: ${result}`;
+            showResult("Is A equal to B?: " + (a === b));
         }
 
+        // Function to show the logical AND result
         function showLogicalAnd() {
-            let result = (a <= b) && (a >= b);
-            document.getElementById('result').innerText = `Logical AND: ${result}`;
+            showResult("Logical AND: " + ((a <= b) && (a >= b)));
         }
 
+        // Function to show the logical OR result
         function showLogicalOr() {
-            let result = (a !== b) || (a === b);
-            document.getElementById('result').innerText = `Logical OR: ${result}`;
+            showResult("Logical OR: " + ((a !== b) || (a === b)));
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
